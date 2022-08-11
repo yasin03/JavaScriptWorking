@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ 
+
+ <script>
+
+    let x = false;
+    let y = true;
+    let z = true;
+    let m = false;
+
+     const compration1 = true && null;
+     console.log(compration1); //null
+
+     const compration2 = y && z && 5;
+     console.log(compration2); //5
+
+     const compration3 = y && m && z && 5;
+     console.log(compration3); //false
+
+     const compration4 = false && null;
+     console.log(compration4); //false
+
+     const compration5 = z || 34;
+     console.log(compration5); //true
+
+     const compration6 = m || z || 34;
+     console.log(compration6); //true
+
+     
+
+
+ </script>
+</body>
+</html>

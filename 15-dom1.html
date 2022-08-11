@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p class="desc">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id pariatur iste
+      molestiae <b>veritatis</b> nam laboriosam, mollitia, placeat dolorum ullam
+      architecto aliquid iure voluptate fugiat blanditiis voluptates. Dolor
+      voluptates enim fugit?
+    </p>
+    <ul class="menu">
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+    <script>
+      const elh1 = document.querySelector("h1");
+      console.log(elh1);
+
+      elh1.innerText = "Java Script"; // metin değiştirmek için kullanılır
+
+      const allH1 = document.querySelectorAll("h1");
+      console.log(allH1);
+
+      const elHome = document.querySelectorAll(".menu li:first-child");
+      console.log(elHome);
+      elHome.innerText = "Java";
+
+      const allli = document.querySelectorAll(".menu li");
+      console.log(allli);
+
+      const elDesc = document.querySelector(".desc");
+      console.log(elDesc.innerText);
+      console.log(elDesc.innerHTML);
+
+    </script>
+  </body>
+</html>
