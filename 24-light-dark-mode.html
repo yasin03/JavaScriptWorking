@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --colorDark: rgb(35, 35, 35);
+        --colorLight: rgb(220, 218, 218);
+      }
+
+      button {
+        background-color: var(--colorDark);
+        color: var(--colorLight);
+      }
+
+      body.dark {
+        background-color: rgb(35, 35, 35);
+        color: rgb(220, 218, 218);
+      }
+
+      body.dark button {
+        background-color: var(--colorLight);
+        color: var(--colorDark);
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="setMode()">Dark</button>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique qui
+      facilis ut consequatur suscipit officia et non debitis provident ipsa
+      quidem modi, illum excepturi libero, veniam dignissimos sint voluptates
+      quas. Eum dicta nostrum harum placeat velit inventore. Dolorum voluptates
+      aut, non excepturi odit nostrum molestiae commodi porro saepe alias quas
+      distinctio maxime rem nesciunt aliquam, aliquid voluptate adipisci facere
+      consequuntur. Nobis nesciunt cum vitae nulla quis aut aliquam ipsam.
+      Excepturi sit, quae ducimus ex odio praesentium illo laboriosam
+      dignissimos dicta sunt commodi quod, consectetur impedit. Distinctio ex
+      praesentium inventore hic! Ipsam quam nobis natus id dicta tenetur autem
+      atque porro ad rem cumque laudantium minima est, animi ut consectetur
+      corporis! Voluptatum distinctio sed dolorum quo quos excepturi repudiandae
+      odit consequatur. Accusantium ipsa nemo sed maxime possimus excepturi quam
+      natus esse ratione harum culpa ea a neque, aliquid autem? Rem libero
+      beatae praesentium dolor harum, omnis voluptatum! Itaque velit voluptate
+      similique.
+    </p>
+
+    <script>
+      let mode = "light";
+      function setMode() {
+        if (mode === "light") {
+          document.querySelector("body").classList.add("dark");
+          mode = "dark";
+        } else {
+          document.querySelector("body").classList.remove("dark");
+          mode = "light";
+        }
+      }
+    </script>
+  </body>
+</html>
