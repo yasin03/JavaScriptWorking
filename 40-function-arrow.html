@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="txtYear" placeholder="Type your birth year"/>
+    <button onclick="calculate()">Calculate</button>
+
+    <h3 id="result">...</h3>
+
+    <script>
+
+      // Arrow function yöntemi
+      const sum4 = (a,b) => a + b;
+
+      const sum3 = (a,b) => {
+        return a + b;
+      }
+
+      // Expression function yöntemi
+      const sum2 = function (a,b){
+        return a + b;
+      }
+
+      // Geleneksel function yöntemi
+      function sum1(a,b){
+        return a + b;
+      }
+
+
+
+
+      function calculate() {
+        const year = document.querySelector("#txtYear").value;
+        const result = findAge(year);
+
+        document.querySelector("#result").innerHTML = `Yaşınız : ${result}`;
+      }
+
+    
+    </script>
+  </body>
+</html>

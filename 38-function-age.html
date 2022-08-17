@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="txtYear" placeholder="Type your birth year"/>
+    <button onclick="calculate()">Calculate</button>
+
+    <h3 id="result">...</h3>
+
+    <script>
+      function calculate() {
+        const year = document.querySelector("#txtYear").value;
+        const result = findAge(year);
+
+        document.querySelector("#result").innerHTML = `Yaşınız : ${result}`;
+      }
+
+      function findAge(year) {
+        if(!year || isNaN(year)) return;
+
+        const date = new Date();
+        const currentYear = date.getFullYear();
+        
+        if (currentYear<year) return;
+        let age = currentYear - year;
+
+        return age;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="txtNumber" placeholder="Type your number" />
+    <button onclick="calculate()">Calculate</button>
+
+    <h3 id="result">...</h3>
+
+    <script>
+      function calculate() {
+        const number = document.querySelector("#txtNumber").value;
+        const result = findAsal(number);
+
+        let asal = result
+          ? `Girdiğiniz ${number} sayısı Asal'dır.`
+          : `Girdiğiniz ${number} sayısı Asal değildir.`;
+
+        document.querySelector("#result").innerHTML = asal;
+      }
+
+      function findAsal(num) {
+        if(!num || isNaN(num) || num<2) return false;
+        for (let i = 2; i < num; i++){
+          if (num%i==0) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

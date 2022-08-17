@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="txtYear" placeholder="Type your birth year" />
+    <button onclick="calculate()">Calculate</button>
+
+    <h3 id="result">...</h3>
+
+    <script>
+      let z = 15; // global scope
+
+      const test1 = () => {
+        let x = 40; // function scope
+        console.log(`x değişkeninini değeri ${x}`);
+        console.log(`z değişkeninini değeri ${z}`);
+      };
+
+      const test2 = () => {
+        let x = 33;
+        let z =11;
+        g=33; // javascript tanımlanmamış değişkenleri global olarak kabul eder.
+        if (x > 20) {
+          let y = 15; // y if scobu içinde yaşar ve ölür
+          y += 3;
+        }
+        console.log(y); // y değerine burdan ulaşamayız
+        console.log(z); // z değerine burdan ulaşabiliriz global olduğu için
+      };
+
+      const test3 = () => {
+        // let z = 21; // aynı scopta varsa bunu kullanır.
+        console.log(z); // globalde varsa onu kullanır.
+      }
+
+      // x e burdan ulaşamayız
+      console.log(`x değişkeninini değeri ${x}`);
+      console.log(`z değişkeninini değeri ${z}`);
+
+      test1();
+      test2();
+      test3();
+    </script>
+  </body>
+</html>
