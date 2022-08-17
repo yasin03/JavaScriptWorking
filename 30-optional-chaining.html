@@ -32,8 +32,15 @@
 
       function setUserInfo() {
         const newSalary = user2?.salary*1.25;
-        const phone = user2?.phone?.gsm;
- 
+        
+        const phone = user2?.phone?.gsm; // es11 ile gelen özellik ? operatörü ile hata versede program çalışmaya devam ediyor.
+        
+        /* eskiden hata  bu şekilde uzun uzun kontrol ediliyordu
+        if (user2 && user2.phone && user2.phone.gsm) {
+          document.querySelector(".gsm").innerHTML = user2.phone.gsm;
+        }
+        */
+
         console.log(`Sn. ${user2.name} yeni maaşınız
         ${newSalary} olmuştur.`);
 
