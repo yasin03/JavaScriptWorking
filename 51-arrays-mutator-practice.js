@@ -31,16 +31,33 @@ document.querySelector("#btnAddCity").addEventListener("click", () => {
   if (!city) return;
 
   for (let i = 0; i < cities.length; i++) {
-   if (cities.includes(city)) {
-    document.querySelector("#warn").innerText = `${city} şehri zaten ekli`;
-    return;
-   }
-   
+    if (cities.includes(city)) {
+      document.querySelector("#warn").innerText = `${city} şehri zaten ekli`;
+      return;
+    }
   }
 
   cities.push(city);
   loadList();
 });
+
+document.querySelector("#btnMix").addEventListener("click", () => {
+  getRandom();
+  loadList();
+});
+
+const getRandom = () => {
+  const arr = [];
+
+  while (cities.length > 0) {
+    const rndIndex = Math.floor((Math.random() * cities) / cities.length);
+    const city = cities[rndIndex];
+    arr.push(city);
+
+    cities.splice(rndIndex, 1);
+  }
+  cities.splice(0, 0, ...arr);
+};
 
 const loadList = () => {
   let html = "";
