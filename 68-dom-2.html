@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+    <title>Document</title>
+  </head>
+  <body class="m-5">
+
+    <div class="menu">
+      <p class="desc">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem reprehenderit, quis minus eos laborum ratione a non! Ducimus dolores magnam eaque voluptatum eligendi, debitis at nesciunt possimus suscipit magni qui.
+        Perspiciatis illum ex dolorem expedita ratione provident error, voluptates repellat illo possimus sunt sint reiciendis cupiditate est numquam libero optio odio ad. Facilis accusamus mollitia omnis id neque architecto? Fuga!
+      </p>
+    
+
+    <ul class="link-list">
+      <li><a href="#">Link1</a></li>
+      <li><a href="https://google.com.tr" target="_blank" id="lnk">Link2</a></li>
+      <li><a href="#">Link3</a></li>
+    </ul>
+
+  </div>
+    <script>
+     
+      document.querySelector("#lnk").addEventListener("click", (e)=>{
+        e.preventDefault();
+
+        e.target.closest(".menu").querySelector(".desc").innerHTML = "Hello World";
+        // closest yukarı doğru en yakın elemanı querySelector aşağı doğru element seçer.
+      });
+
+      console.log(document.querySelector(".menu ul").children);
+
+      console.log(document.querySelector("#lnk").parentElement.parentElement);
+
+      console.log(document.querySelector("#lnk").parentElement.nextElementSibling);
+      console.log(document.querySelector("#lnk").parentElement.previousElementSibling);
+      console.log(document.querySelector("#lnk").parentElement.parentElement.children);
+
+
+    </script>
+  
+  </body>
+</html>
