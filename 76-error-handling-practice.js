@@ -1,50 +1,22 @@
-import { students } from "./assets/data/students.js";
+document.querySelector("#frmLogin").addEventListener("submit", (e) => {
+  e.preventDefault(); // formun default davranışını submit'i iptal eder
+  try {
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
 
-const loadStudents = () => {
-  let strStudents = "";
+    if (!isEmail(email)) throw "Lütfen geçerli bir email adresi giriniz.";
 
-  students.forEach((s, index) => {
-    strStudents += `
-    <tr>
-    <td scope="row">${index + 1}</td>
-    <td>${s.name}</td>
-    <td>${s.puan}</td>
-    <td><button class="btn btn-danger btn-delete">Del</button></td>
-  </tr>`;
-  });
-  document.querySelector("#tbody").innerHTML = strStudents;
-};
+    if (!password) throw "Lütfen parola giriniz.";
 
-const setStudentBg = () => {
-  const rows = document.querySelectorAll("#tblStudents tbody tr");
-
-  for (let row of rows) {
-    const point = row.querySelector("td:nth-child(3)").innerText;
-    if (point < 50) {
-      row.classList.add("table-danger");
-    }
+    e.target.submit(); // kontroller yapıldıktan sonra submit işlemine devam eder.
+  } catch (error) {
+    alert(error);
   }
+});
+
+const isEmail = (email) => {
+  const regex = /\S+@\S+\.\S{2,5}$/;
+  // reqular expression -> https://regexr.com/
+
+  return regex.test(email);
 };
-
-loadStudents();
-setStudentBg();
-
-document.querySelectorAll(".btn-delete").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    const row = e.target.closest("tr");
-    const result = confirm(
-      // true yada false döndürür..
-      `${
-        row.querySelector("td:nth-child(2)").innerText
-      } isimli öğrenciyi silmek istediğinizden eminmisiniz?`
-    );
-    if (!result) return;
-    row.remove();
-  });
-});
-
-document.querySelectorAll("#tbody tr").forEach((row) => {
-  row.addEventListener("click", (e) => {
-    e.target.closest("tr").classList.toggle("bg-warning");
-  });
-});
