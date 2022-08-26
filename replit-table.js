@@ -1,35 +1,25 @@
 import { students } from "./assets/data/students.js";
 let str = "";
 let que = 1;
-/*
-const loadList = () => {
-  let total = 0;
-  for (let st of students) {
-    str += `<tr>
-    <td>${st.id}</td>
-    <td>${st.name}</td>
-    <td>${st.puan}</td>
-    <td><a id="update" href="#"><i class="fa-solid fa-pen"></i></a>&nbsp&nbsp&nbsp
-    <a id="delete" href="#"><i class="fa-solid fa-trash-can"></i></a></td>`;
-    total += st.puan;
-  }
-  document.querySelector("#tfoot th:nth-child(3)").innerHTML = total;
-  document.querySelector("#tbody").innerHTML = str;
-};
 
-loadList();
-*/
-// tıklandığında satırdaki arka planın rengini değiştirir.
-document.querySelectorAll("#tbody tr").forEach((row) => {
-  row.addEventListener("click", () => {
-    row.classList.toggle("bg-secondary");
-    row.classList.toggle("text-light");
+const btnAdd = document.querySelector("#btnAdd");
+const inpName = document.querySelector("#inputName");
+const inpPoint = document.querySelector("#inputPoint");
+
+// buton disable fonksiyonu
+
+btnAdd.setAttribute("disabled", "disabled");
+
+inpName.addEventListener("input", (e) => {
+  inpPoint.addEventListener("input", (es) => {
+    if (e.target.value.length > 0 && es.target.value.length > 0) {
+      btnAdd.removeAttribute("disabled");
+    }
   });
 });
 
 // ekleme fonksiyonu
-
-document.querySelector("#btnAdd").addEventListener("click", () => {
+btnAdd.addEventListener("click", () => {
   const name = document.querySelector("#inputName").value;
   const point = document.querySelector("#inputPoint").value;
 
@@ -55,12 +45,47 @@ document.querySelector("#btnAdd").addEventListener("click", () => {
   td4.appendChild(i2);
   tr.appendChild(td4);
   sirala();
+
   document.querySelector("#tbody").prepend(tr);
+  average();
+  input.value = "";
 });
 
+// Sıralama Fonksiyonu
 const sirala = () => {
   const rows = document.querySelectorAll("#tbody tr");
   for (let i = 0; i < rows.length; i++) {
     rows[i].querySelector("td:nth-child(1)").innerHTML = i + 2;
   }
 };
+
+// Ortalama Alma Fonksiyonu
+const average = () => {
+  const avg = document.querySelector("#tfoot tr th:nth-child(3)");
+  let total = 0;
+  const rows2 = document.querySelectorAll("#tbody tr");
+
+  rows2.forEach((rw) => {
+    const pt = document.querySelector("td:nth-child(3)").value;
+    total += pt;
+  });
+
+  avg.innerHTML = total / rows2.length;
+  console.log(avg);
+};
+
+// tıklandığında satırdaki arka planın rengini değiştirir.
+document.querySelectorAll("#tbody tr").forEach((row) => {
+  row.addEventListener("click", () => {
+    row.classList.toggle("bg-secondary");
+  });
+});
+
+// Silme Fonksiyonu
+const delBtns = document.querySelectorAll(
+  "#tbody tr td:nth-child(4) i:nth-child(2)"
+);
+
+delBtns.forEach((btn) => {
+  btn.addEventListener("click", (e = {}));
+});

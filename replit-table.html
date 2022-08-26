@@ -28,18 +28,19 @@
   <body class="m-5" >
     
 <div class="container">
-<div class="row">
-  <div class="col-8">
- <div class="d-flex justify-content-between gap-1 mb-3">
+  <div class="row" id="input">
+    <div class="col">
+      <div id="inp" class="d-flex justify-content-between gap-1 mb-3">
         <input type="text" 
         id="inputName" placeholder="Type Name">
         <input type="number" id="inputPoint" placeholder="Point">
         <button class="btn btn-warning" id="btnAdd">+Add</button>
       </div>
-
+      </div>
     </div>
-      <div class="col-8">
-    <table class="table table-hover">
+    <div class="row">
+      <div class="col">
+        <table class="table table-hover">
      
       
       <thead>
@@ -47,7 +48,7 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Point</th>
-          <th scope="col">#</th>
+          <th scope="col">Edit/Delete</th>
         </tr>
       </thead>
       <tbody id="tbody">
@@ -57,14 +58,13 @@
       <tfoot id="tfoot">
         <tr>
           <th ></th>
-          <th >Total</th>
+          <th >Average</th>
           <th ></th>
           <th"></th>
         </tr>
       </tfoot>
     </table>
   </div>
-  
 </div>
   </div>
   <script type="module" src="replit-table.js">
