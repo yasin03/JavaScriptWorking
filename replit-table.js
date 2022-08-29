@@ -47,8 +47,6 @@ btnAdd.addEventListener("click", () => {
   sirala();
 
   document.querySelector("#tbody").prepend(tr);
-  average();
-  input.value = "";
 });
 
 // Sıralama Fonksiyonu
@@ -63,27 +61,30 @@ const sirala = () => {
 const average = () => {
   const avg = document.querySelector("#tfoot tr th:nth-child(3)");
   let total = 0;
-  const rows2 = document.querySelectorAll("#tbody tr");
+  const rows = document.querySelectorAll("#tbody tr");
 
-  rows2.forEach((rw) => {
+  rows.forEach((rw) => {
     const pt = document.querySelector("td:nth-child(3)").value;
     total += pt;
   });
 
-  avg.innerHTML = total / rows2.length;
+  avg.innerHTML = total / rows.length;
   console.log(avg);
 };
 
 // tıklandığında satırdaki arka planın rengini değiştirir.
-document.querySelectorAll("#tbody tr").forEach((row) => {
-  row.addEventListener("click", () => {
-    row.classList.toggle("bg-secondary");
+
+const changeColor = () => {
+  document.querySelectorAll("#tbody tr").forEach((row) => {
+    row.addEventListener("click", () => {
+      row.classList.toggle("bg-secondary");
+    });
   });
-});
+};
 
 // Silme Fonksiyonu
 const delBtns = document.querySelectorAll(
-  "#tbody tr td:nth-child(4) i:nth-child(2)"
+  "#tbody tr td:nth-child(4) i:last-child"
 );
 
 delBtns.forEach((btn) => {
